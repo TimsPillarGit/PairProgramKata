@@ -33,4 +33,10 @@ describe('AppComponent', () => {
     component.write('test2');
     expect(component.paper).toBe('test test2');
   });
+
+  it('should reduce point durability by number of lowercase characters', () => {
+    expect(component.pencil.pointDurability).toBe(10);
+    component.write('on');
+    expect(component.pencil.pointDurability).toBe(8);
+  });
 });
