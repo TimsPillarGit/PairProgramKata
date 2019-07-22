@@ -53,8 +53,8 @@ describe('AppComponent', () => {
     expect(component.pencil.pointDurability).toBe(7);
   });
 
-  it('should ignore the point reduction for spaces', () => {
-    component.write(' On');
+  it('should ignore the point reduction for spaces and new lines', () => {
+    component.write(' On \n');
     expect(component.pencil.pointDurability).toBe(7);
   });
 
