@@ -74,5 +74,14 @@ describe('AppComponent', () => {
       component.sharpen();
       expect(component.pencil.pointDurability).toBe(10);
     });
+
+    it('should initialize the size of the pencil to 2', () => {
+      expect(component.pencil.size).toBe(2);
+    });
+
+    it('should reduce the size by 1 when sharpened', () => {
+      component.sharpen();
+      expect(component.pencil.size).toBe(1);
+    });
   });
 });

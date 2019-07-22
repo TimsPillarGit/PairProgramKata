@@ -13,6 +13,7 @@ export class AppComponent {
 
   constructor() {
     this.pencil.pointDurability = 10;
+    this.pencil.size = 2;
   }
 
   write(textToAdd: string) {
@@ -28,5 +29,6 @@ export class AppComponent {
 
   sharpen() {
     this.pencil.pointDurability = 10;
+    this.pencil.size -= 1;
   }
 }
