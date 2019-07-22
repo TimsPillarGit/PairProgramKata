@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PairProgramKata';
+  paper = '';
+
+  write(textToAdd: string) {
+    this.paper = this.paper.concat(textToAdd);
+  }
 }

@@ -22,4 +22,15 @@ describe('AppComponent', () => {
   it('should create the app', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should allow user to write text to paper', () => {
+    component.write('test');
+    expect(component.paper).toBe('test');
+  });
+
+  it('should allow user to write text to paper and it should append to existing text', () => {
+    component.write('test ');
+    component.write('test2');
+    expect(component.paper).toBe('test test2');
+  });
 });
