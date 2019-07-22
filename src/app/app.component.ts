@@ -25,4 +25,8 @@ export class AppComponent {
 
     this.pencil.pointDurability -= pointsForLowercaseLetters + pointsForUppercaseLetters;
   }
+
+  sharpen() {
+    this.pencil.pointDurability = 10;
+  }
 }
