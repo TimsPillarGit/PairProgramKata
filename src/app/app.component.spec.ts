@@ -34,9 +34,33 @@ describe('AppComponent', () => {
     expect(component.paper).toBe('test test2');
   });
 
-  it('should reduce point durability by number of lowercase characters', () => {
+  it('should have an intial value of 10 for pencil point durability', () => {
     expect(component.pencil.pointDurability).toBe(10);
+  });
+
+  it('should reduce point durability by number of lowercase characters', () => {
     component.write('on');
     expect(component.pencil.pointDurability).toBe(8);
+  });
+
+  it('should double the reduction of point durability by number of uppercase characters', () => {
+    component.write('ON');
+    expect(component.pencil.pointDurability).toBe(6);
+  });
+
+  it('should calculate the point reduction for mix of uppercase and lowercase letters', () => {
+    component.write('On');
+    expect(component.pencil.pointDurability).toBe(7);
+  });
+
+  it('should ignore the point reduction for spaces', () => {
+    component.write(' On');
+    expect(component.pencil.pointDurability).toBe(7);
+  });
+
+
+  it('should ignore the point reduction for spaces when space is between characters', () => {
+    component.write('O n');
+    expect(component.pencil.pointDurability).toBe(7);
   });
 });

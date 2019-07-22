@@ -18,8 +18,11 @@ export class AppComponent {
   write(textToAdd: string) {
     this.paper = this.paper.concat(textToAdd);
 
-    const pointsToSubtract = textToAdd.length;
+    const textWithoutSpaces = textToAdd.replace(/\s/g, '');
+    const uppercaseLetters = textToAdd.replace(/[^A-Z]/g, '');
+    const pointsForLowercaseLetters = (textWithoutSpaces.length - uppercaseLetters.length);
+    const pointsForUppercaseLetters = (uppercaseLetters.length * 2);
 
-    this.pencil.pointDurability -= pointsToSubtract;
+    this.pencil.pointDurability -= pointsForLowercaseLetters + pointsForUppercaseLetters;
   }
 }
