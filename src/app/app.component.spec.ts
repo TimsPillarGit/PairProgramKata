@@ -83,5 +83,13 @@ describe('AppComponent', () => {
       component.sharpen();
       expect(component.pencil.size).toBe(1);
     });
+
+    it('should reduce the size by 1 when sharpened', () => {
+      component.pencil.size = 1;
+      component.sharpen();
+      component.write('a');
+      component.sharpen();
+      expect(component.pencil.pointDurability).toBe(9);
+    });
   });
 });

@@ -28,7 +28,9 @@ export class AppComponent {
   }
 
   sharpen() {
-    this.pencil.pointDurability = 10;
-    this.pencil.size -= 1;
+    if (this.pencil.size > 0) {
+      this.pencil.pointDurability = 10;
+      this.pencil.size -= 1;
+    }
   }
 }
